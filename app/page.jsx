@@ -1,8 +1,17 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const existingTasks = localStorage.getItem('tasks')
+  if(existingTasks){
+    setTasks(JSON.parse(existingTasks))
+  }
+  }, []);
+
+  
 
   const handleAddTask = (e) => {
     e.preventDefault();
@@ -12,6 +21,7 @@ export default function Home() {
     }
     const newTasks = [...tasks, { id: Date.now(), text: taskText }];
     setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
     e.target.task.value = "";
   };
 
@@ -20,16 +30,19 @@ export default function Home() {
       task.id === taskId ? { ...task, text: newText } : task
     );
     setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+    
   };
 
   const handleDeleteTask = (taskId) => {
     const filteredTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(filteredTasks);
+    localStorage.setItem("tasks", JSON.stringify(filteredTasks));
   };
 
   return (
     <div className="w-96 mx-auto mt-10 border p-4 shadow-lg">
-      <p className="text-center font-bold text-3xl">DOTO LISTS</p>
+      <p className="text-center font-bold text-3xl">TODO LISTS</p>
       <hr />
 
       <form onSubmit={handleAddTask} className="flex flex-col mt-2">
