@@ -6,6 +6,7 @@ import FunFact from "./components/home/FunFact";
 import ContactUs from "./components/contactUs/ContactUs";
 import MeetOurTeam from "./components/home/MeetOurTeam";
 import CreativeTeamProject from "./components/home/CreativeTeamProject";
+import TestimonialCard from "./components/home/TestimonialCard";
 
 export default function Home() {
   
@@ -29,6 +30,7 @@ export default function Home() {
 
     <MeetOurTeam />
     <CreativeTeamProject />
+    <TestimonialCard />
     </div>
   );
 }
