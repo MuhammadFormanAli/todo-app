@@ -1,92 +1,30 @@
-"use client";
-import { useEffect, useState } from "react";
+
+import OurWorkBanner from "./components/ourWorks/OurWorkBanner";
+import WorkCard from "./components/ourWorks/WorkCard";
+import CourseCard from "./components/CoursePage/CourseCard";
+import FunFact from "./components/home/FunFact";
+import ContactUs from "./components/contactUs/ContactUs";
 
 export default function Home() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    const existingTasks = localStorage.getItem('tasks')
-  if(existingTasks){
-    setTasks(JSON.parse(existingTasks))
-  }
-  }, []);
-
   
-
-  const handleAddTask = (e) => {
-    e.preventDefault();
-    const taskText = e.target.task.value;
-    if (taskText === null || taskText === "") {
-      return alert("Task can be empty");
-    }
-    const newTasks = [...tasks, { id: Date.now(), text: taskText }];
-    setTasks(newTasks);
-    localStorage.setItem("tasks", JSON.stringify(newTasks));
-    e.target.task.value = "";
-  };
-
-  const handleEditTask = (taskId, newText) => {
-    const updatedTasks = tasks.map((task) =>
-      task.id === taskId ? { ...task, text: newText } : task
-    );
-    setTasks(updatedTasks);
-    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
-    
-  };
-
-  const handleDeleteTask = (taskId) => {
-    const filteredTasks = tasks.filter((task) => task.id !== taskId);
-    setTasks(filteredTasks);
-    localStorage.setItem("tasks", JSON.stringify(filteredTasks));
-  };
-
   return (
-    <div className="w-96 mx-auto mt-10 border p-4 shadow-lg">
-      <p className="text-center font-bold text-3xl">TODO LISTS</p>
-      <hr />
-
-      <form onSubmit={handleAddTask} className="flex flex-col mt-2">
-        <input
-          className="w-full border px-3 py-2 text-lg rounded-lg "
-          type="text"
-          name="task"
-          placeholder=" Add Task"
-          autoComplete="off"
-        />
-        <button className="bg-black text-white w-fit px-3 py-2 font-bold  rounded-md my-1 ">
-          ADD
-        </button>
-      </form>
-
-      <div className="my-4">
-        {tasks.map((task) => (
-          <div
-            key={task.id}
-            className="flex justify-between w-full bg-slate-300 p-3 border border-gray-400"
-          >
-            <p>{task.text}</p>
-            <div className="flex gap-3">
-              <button
-                className="bg-white rounded-sm px-2 py-1"
-                onClick={() => {
-                  const newText = prompt("Enter New Task Text:", task.text);
-                  if (newText !== null && newText !== "") {
-                    handleEditTask(task.id, newText);
-                  }
-                }}
-              >
-                Edit
-              </button>
-              <button
-                className="bg-white rounded-sm px-2 py-1"
-                onClick={() => handleDeleteTask(task.id)}
-              >
-                Delete
-              </button>
-            </div>
-          </div>
-        ))}
+    <div>
+      <OurWorkBanner />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[1296px] mx-auto  my-20 px-4 ">
+        <WorkCard />
+        <WorkCard />
       </div>
+
+      <div>
+        <p className="text-center font-bold text-3xl p-4">Our course</p>
+        <CourseCard />
+
+      </div>
+
+    <FunFact />
+
+    {/* <ContactUs /> */}
+      
     </div>
   );
 }
