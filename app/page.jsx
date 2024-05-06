@@ -5,6 +5,7 @@ import CourseCard from "./components/CoursePage/CourseCard";
 import FunFact from "./components/home/FunFact";
 import ContactUs from "./components/contactUs/ContactUs";
 import MeetOurTeam from "./components/home/MeetOurTeam";
+import CreativeTeamProject from "./components/home/CreativeTeamProject";
 
 export default function Home() {
   
@@ -27,7 +28,7 @@ export default function Home() {
     <ContactUs /> */}
 
     <MeetOurTeam />
-      
+    <CreativeTeamProject />
     </div>
   );
 }

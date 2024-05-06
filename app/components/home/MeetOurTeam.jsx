@@ -49,14 +49,14 @@ const MeetOurTeam = () => {
   return (
     <div className="relative py-10 flex flex-col gap-20 ">
       <div className="h-full w-full absolute top-0 left-0 -z-50 flex items-center justify-evenly overflow-hidden">
-        <div className="h-60 w-60 bg-[#CD1CE6] bg-opacity-60 blur-[210px]"></div>
-        <div className="h-60 w-60  bg-[#2194FF] bg-opacity-60 blur-[250px]"></div>
+        <div className="h-60 w-60 bg-[#CD1CE6] bg-opacity-80 blur-[200px]"></div>
+        <div className="h-60 w-60  bg-[#2194FF] bg-opacity-80 blur-[200px]"></div>
       </div>
 
       {/* Team members heading  */}
       <div className="flex flex-col gap-6">
         <p className="text-6xl font-medium text-center ">
-          Meet Our{" "}
+          Meet Our
           <span className=" inline-block text-6xl font-bold ml-1  bg-gradient-to-r from-[#FF77AD] to-[#FFAC61] text-transparent bg-clip-text ">
             Teams
           </span>
