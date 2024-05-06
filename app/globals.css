@@ -7,3 +7,9 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
+.gradient-border {
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, #D680FE80, #7A67F080) border-box;
+  border: 1px solid transparent;
+}

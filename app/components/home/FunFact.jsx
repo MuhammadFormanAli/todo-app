@@ -9,7 +9,7 @@ const FunFact = () => {
     <div className="p-9">
       <div className="mb-20">
         <p className="text-6xl font-bold text-center">
-          Fun{" "}
+          Fun
           <span className=" inline-block mb-6 text-6xl font-bold bg-gradient-to-r from-[#FF77AD] to-[#FFAC61] text-transparent bg-clip-text transition-colors duration-700  ">
             Fact
           </span>

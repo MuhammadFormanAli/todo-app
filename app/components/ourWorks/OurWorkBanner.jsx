@@ -15,7 +15,7 @@ const OurWorkBanner = () => {
           experiences in our portfolio. Each project reflects a commitment to
           seamless design and user-centric solutions.new
         </p>
-        <button className=" py-3 px-6 rounded-lg  bg-gradient-to-br from-[#D680FE]  to-[#7A67F0] my-12 ">Contact Us</button>
+        <button className=" py-3 px-6 rounded-lg  bg-gradient-to-br from-[#D680FE]  to-[#7A67F0]  bg-opacity-5 my-12 ">Contact Us</button>
       </div>
     </div>
   );
